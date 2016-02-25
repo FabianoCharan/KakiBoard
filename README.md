@@ -1,5 +1,5 @@
 # KakiBoard
-Aplicação Web para controle de tarefas da equipe de Devs, baseado em Scrum e Kaban.
+Aplicação Web para gerenciar as tarefas da equipe de Devs, baseado em Scrum e Kaban.
 
 - ASP.NET Core 1
 - Angular JS
