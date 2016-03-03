@@ -6,4 +6,3 @@ Aplicação Web para gerenciar as tarefas da equipe de Devs, baseado em Scrum e 
 - MongoDB
 - Redis
 - TDD
-- Integração com o GitHub usando ASP.Net WebHooks
