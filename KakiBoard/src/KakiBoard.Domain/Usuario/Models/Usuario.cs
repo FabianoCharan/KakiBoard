@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KakiBoard.Domain.User.Models
+﻿namespace KakiBoard.Domain.Usuario.Models
 {
-    public class User
+    public class Usuario
     {
         public string Nome { get; private set; }
         public string Email { get; private set; }
         public string Senha { get; private set; }
+        public string Perfil { get; private set; }
 
-        protected User() {}
+        protected Usuario() {}
 
-        public User(string nome,string email,string senha)
+        public Usuario(string nome,string email,string senha)
         {
             Nome = nome;
             Email = email;
