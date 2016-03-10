@@ -51,12 +51,16 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tarefa\TarefaTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KakiBoard.Domain\KakiBoard.Domain.csproj">
       <Project>{7c64c24f-f8df-4039-9d86-f86f3e4a018e}</Project>
       <Name>KakiBoard.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Usuario\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
