@@ -1,12 +1,6 @@
 ﻿using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Domain.Usuario.Services;
 using KakiBoard.SharedKernel.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KakiBoard.Domain.Usuario.Models;
 
 namespace KakiBoard.ApplicationService.Usuario.Services
 {
@@ -22,7 +16,6 @@ namespace KakiBoard.ApplicationService.Usuario.Services
 
         public Domain.Usuario.Models.Usuario Registrar(Domain.Usuario.Models.Usuario usuario)
         {
-
             _repository.Registrar(usuario);
 
             if (Commit())

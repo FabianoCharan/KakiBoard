@@ -58,6 +58,7 @@
     <Compile Include="Repositories\RepositoryBase.cs" />
     <Compile Include="Repositories\Tarefa\TarefaRepository.cs" />
     <Compile Include="Repositories\Usuario\UsuarioRepository.cs" />
+    <Compile Include="Transaction\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KakiBoard.Domain\KakiBoard.Domain.csproj">

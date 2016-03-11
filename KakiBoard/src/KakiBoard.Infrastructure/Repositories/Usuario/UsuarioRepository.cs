@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using KakiBoard.Domain.Usuario.Models;
+﻿using System.Collections.Generic;
 using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Infrastructure.Context;
 
