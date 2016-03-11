@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IRepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarefa\Models\Interacao.cs" />
     <Compile Include="Tarefa\Models\Projeto.cs" />
@@ -54,7 +53,12 @@
     <Compile Include="Usuario\Repositories\IUsuarioRepository.cs" />
     <Compile Include="Usuario\Services\IUsuarioApplicationService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\KakiBoard.SharedKernel\KakiBoard.SharedKernel.csproj">
+      <Project>{975513a5-3b93-4432-8132-6991f18ea56e}</Project>
+      <Name>KakiBoard.SharedKernel</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

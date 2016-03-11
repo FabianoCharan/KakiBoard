@@ -40,7 +40,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\Services\UsuarioApplicationService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KakiBoard.Domain\KakiBoard.Domain.csproj">
+      <Project>{7c64c24f-f8df-4039-9d86-f86f3e4a018e}</Project>
+      <Name>KakiBoard.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KakiBoard.Infrastructure\KakiBoard.Infrastructure.csproj">
+      <Project>{91a3d9fb-f4fd-4953-a06d-dbaa62c5827f}</Project>
+      <Name>KakiBoard.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KakiBoard.SharedKernel\KakiBoard.SharedKernel.csproj">
+      <Project>{975513a5-3b93-4432-8132-6991f18ea56e}</Project>
+      <Name>KakiBoard.SharedKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

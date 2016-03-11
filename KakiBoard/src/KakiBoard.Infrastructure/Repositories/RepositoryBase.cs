@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using KakiBoard.Domain.Interfaces;
 using KakiBoard.Infrastructure.Context;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using KakiBoard.SharedKernel.Repositories;
+using System.Linq.Expressions;
 
 namespace KakiBoard.Infrastructure.Repositories
 {
-    public class RepositoryBase<T> : IDisposable, IRepositoryBase<T> where T : class
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         private readonly IMongoCollection<T> _dbSet;
         protected KakiBoardContext Db = new KakiBoardContext();
@@ -17,9 +18,14 @@ namespace KakiBoard.Infrastructure.Repositories
             _dbSet = Db.DataBase.GetCollection<T>(typeof(T).Name);
         }
 
-        public void Add(T entity)
+        public void Create(T entity)
         {
             _dbSet.InsertOneAsync(entity);
+        }
+
+        public IEnumerable<T> Find(Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
         }
 
         public void Delete(T entity)
@@ -41,6 +47,7 @@ namespace KakiBoard.Infrastructure.Repositories
         {
 
         }
+
         public void Dispose()
         {
         }
