@@ -32,7 +32,7 @@ namespace KakiBoard.Api.Helpers
         {
             try
             {
-                return _container.ResolveAll(serviceType);
+                return _container.Resolve(serviceType);
             }
             catch (ResolutionFailedException)
             {
