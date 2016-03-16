@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarefa\TarefaTest.cs" />
+    <Compile Include="Usuario\UsuarioTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KakiBoard.Domain\KakiBoard.Domain.csproj">
@@ -59,9 +60,7 @@
       <Name>KakiBoard.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Usuario\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

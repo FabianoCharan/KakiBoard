@@ -10,11 +10,17 @@ namespace KakiBoard.Domain.Usuario.Models
 
         protected Usuario() { }
 
-        public Usuario(string nome, string email, string senha)
+        public Usuario(string nome, string email, string senha, string perfil)
         {
             Nome = nome;
             Email = email;
             Senha = senha;
+            Perfil = perfil;
+        }
+
+        public void Autenticar(string email, string senha)
+        {
+
         }
     }
 }

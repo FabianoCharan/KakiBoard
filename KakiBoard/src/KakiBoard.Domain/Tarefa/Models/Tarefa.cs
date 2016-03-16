@@ -25,9 +25,14 @@ namespace KakiBoard.Domain.Tarefa.Models
         public IList<Interacao> Interacoes { get; private set; }
         public IList<Teste> Testes { get; private set; }
 
-        public Tarefa(string titulo)
+        public Tarefa(string titulo, string tipo, string projeto, string quemCadastrou,string status)
         {
-
+            Titulo = titulo;
+            Tipo = tipo;
+            Projeto = projeto;
+            QuemCadastrou = quemCadastrou;
+            DataCadastro = DateTime.Now;
+            Status = status;
         }
     }
 }
