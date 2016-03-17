@@ -8,7 +8,7 @@ namespace KakiBoard.Infrastructure.Context
     public class KakiBoardContext
     {
         public const string CONNECTION_STRING_NAME = "KakiBoardConnnection";
-        public const string DATABASE_NAME = "Kakiboard";
+        public const string DATABASE_NAME = "kakiboard";
         public const string TAREFAS_COLLECTION_NAME = "tarefas";
         public const string USUARIOS_COLLECTION_NAME = "usuarios";
 

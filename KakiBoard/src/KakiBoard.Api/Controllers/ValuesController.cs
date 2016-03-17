@@ -1,4 +1,4 @@
-﻿using KakiBoard.Domain.Usuario.Models;
+﻿using KakiBoard.Domain.Usuario;
 using KakiBoard.Domain.Usuario.Services;
 using System.Collections.Generic;
 using System.Net;
@@ -11,8 +11,7 @@ namespace KakiBoard.Api.Controllers
     public class ValuesController : BaseController
     {
         private readonly IUsuarioApplicationService _service;
-
-        
+               
 
         public ValuesController(IUsuarioApplicationService service)
         {
@@ -33,11 +32,11 @@ namespace KakiBoard.Api.Controllers
 
         // POST api/values
         [HttpPost]
-        public Task<HttpResponseMessage> Post(Usuario usuario)
+        public Task<HttpResponseMessage> Post(Domain.Usuario.Commands.RegistrarUsuarioCommand command)
         {
-            _service.Registrar(usuario);
+            _service.Registrar(command);
 
-            return CreateResponse(HttpStatusCode.OK, usuario);
+            return CreateResponse(HttpStatusCode.OK, command);
         }
 
         // PUT api/values/5

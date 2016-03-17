@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using KakiBoard.Domain.Usuario.Models;
 using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Infrastructure.Context;
+using System.Threading.Tasks;
+using KakiBoard.Domain.Usuario.Specs;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace KakiBoard.Infrastructure.Repositories.Usuario
 {
@@ -29,6 +32,18 @@ namespace KakiBoard.Infrastructure.Repositories.Usuario
         public void Registrar(Domain.Usuario.Models.Usuario usuario)
         {
             _context.Usuarios.InsertOne(usuario);
+        }
+
+        public bool UsuarioJaExiste(Domain.Usuario.Models.Usuario usuario)
+        {
+            //UsuarioEspecificacao.EmailJaExiste(usuario.Email)
+
+            var build = Builders<BsonDocument>.Filter;
+            var filter = build.Eq("email",usuario.Email).ToBsonDocument();// new BsonDocument();
+
+            var result = _context.Usuarios.Find(UsuarioEspecificacao.EmailJaExiste(usuario.Email)).FirstOrDefaultAsync().Result;
+            bool retorno = result != null;
+            return retorno;
         }
     }
 }

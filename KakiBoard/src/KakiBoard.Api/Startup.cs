@@ -1,5 +1,6 @@
 ﻿using KakiBoard.Api.Helpers;
 using KakiBoard.CrossCutting.Dependency;
+using KakiBoard.SharedKernel.Events;
 using Microsoft.Practices.Unity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -47,6 +48,7 @@ namespace KakiBoard.Api
             DependencyRegister.Register(container);
 
             config.DependencyResolver = new UnityResolverHelper(container);
+            DomainEvent.Container = new DomainEventsContainer(config.DependencyResolver);
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }

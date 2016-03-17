@@ -17,5 +17,7 @@ namespace KakiBoard.Domain.Usuario.Scope
                 );
         }
 
+
+
     }
 }

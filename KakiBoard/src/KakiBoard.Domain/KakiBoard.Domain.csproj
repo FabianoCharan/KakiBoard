@@ -32,12 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -49,6 +44,9 @@
     <Compile Include="Tarefa\Models\Tipo.cs" />
     <Compile Include="Tarefa\Repositories\ITarefaRepository.cs" />
     <Compile Include="Tarefa\Services\ITarefaApplicationService.cs" />
+    <Compile Include="Usuario\Commands\RegistrarUsuarioCommand.cs" />
+    <Compile Include="Usuario\Events\UserEvents\RegistrarUsuario.cs" />
+    <Compile Include="Usuario\Handler\IRegistrarUsuarioHandler.cs" />
     <Compile Include="Usuario\Scope\UsuarioEscopo.cs" />
     <Compile Include="Usuario\Models\Usuario.cs" />
     <Compile Include="Usuario\Repositories\IUsuarioRepository.cs" />

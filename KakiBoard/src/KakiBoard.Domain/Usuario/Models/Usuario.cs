@@ -1,4 +1,5 @@
-﻿
+﻿using KakiBoard.Domain.Usuario.Scope;
+
 namespace KakiBoard.Domain.Usuario.Models
 {
     public class Usuario
@@ -16,6 +17,12 @@ namespace KakiBoard.Domain.Usuario.Models
             Email = email;
             Senha = senha;
             Perfil = perfil;
+        }
+
+        public void Registrar()
+        {
+            if (UsuarioEscopo.RegistrarUsuarioEscopoValido(this))
+                return;
         }
 
         public void Autenticar(string email, string senha)
