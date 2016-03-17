@@ -40,9 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\Contracts\IDomainEvent.cs" />
+    <Compile Include="Events\DomainEvent.cs" />
+    <Compile Include="Events\DomainNotification.cs" />
+    <Compile Include="Helpers\Contracts\IContainer.cs" />
+    <Compile Include="Helpers\Contracts\IHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepositoryBase.cs" />
     <Compile Include="Repositories\IUnitOfWork.cs" />
+    <Compile Include="Validation\AssertionConcern.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
