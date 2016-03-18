@@ -5,7 +5,7 @@ namespace KakiBoard.Domain.Usuario.Models
 {
     public class Usuario
     {
-        public Guid _id { get; private set; }
+        //public Guid _id { get; private set; }
         public string Nome { get; private set; }
         public string Email { get; private set; }
         public string Senha { get; private set; }
@@ -15,7 +15,7 @@ namespace KakiBoard.Domain.Usuario.Models
 
         public Usuario(string nome, string email, string senha, string perfil)
         {
-            _id = Guid.NewGuid();
+            //_id = Guid.NewGuid();
             Nome = nome;
             Email = email;
             Senha = senha;

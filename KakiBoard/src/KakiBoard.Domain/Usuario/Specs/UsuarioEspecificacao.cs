@@ -10,6 +10,5 @@ namespace KakiBoard.Domain.Usuario.Specs
         {
             return x => x.Email == email;
         }
-
     }
 }

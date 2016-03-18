@@ -1,4 +1,7 @@
-﻿using KakiBoard.Domain.Usuario.Events.UserEvents;
+﻿using System;
+using System.Collections.Generic;
+using KakiBoard.Domain.Usuario.Events.UserEvents;
+using KakiBoard.Domain.Usuario.Models;
 using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Domain.Usuario.Services;
 using KakiBoard.SharedKernel.Events;
@@ -15,6 +18,11 @@ namespace KakiBoard.ApplicationService.Usuario.Services
             : base(unitOfWork)
         {
             _repository = repository;
+        }
+
+        public List<Domain.Usuario.Models.Usuario> ListarTodosUsuarios()
+        {
+            return _repository.ListarUsuarios();
         }
 
         public Domain.Usuario.Models.Usuario Registrar(Domain.Usuario.Commands.RegistrarUsuarioCommand command)

@@ -1,9 +1,7 @@
-﻿using Microsoft.Practices.Unity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http.Dependencies;
+using Microsoft.Practices.Unity;
 
 namespace KakiBoard.Api.Helpers
 {

@@ -19,9 +19,9 @@ namespace KakiBoard.Api.Controllers
         }
 
         // GET api/values
-        public IEnumerable<string> Get()
+        public Task<HttpResponseMessage> Get()
         {
-            return new string[] { "value1", "value2" };
+            return CreateResponse(HttpStatusCode.OK, _service.ListarTodosUsuarios());
         }
 
         // GET api/values/5
