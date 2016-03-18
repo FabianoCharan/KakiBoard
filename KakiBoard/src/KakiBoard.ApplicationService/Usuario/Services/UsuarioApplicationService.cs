@@ -2,6 +2,7 @@
 using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Domain.Usuario.Services;
 using KakiBoard.SharedKernel.Events;
+using KakiBoard.SharedKernel.Helpers.Contracts;
 using KakiBoard.SharedKernel.Repositories;
 
 namespace KakiBoard.ApplicationService.Usuario.Services
@@ -20,7 +21,9 @@ namespace KakiBoard.ApplicationService.Usuario.Services
         {
             var usuario = new Domain.Usuario.Models.Usuario(command.Nome, command.Email, command.Senha, command.Perfil);
 
-            var usuarioExiste = _repository.UsuarioJaExiste(usuario);
+            if (_repository.UsuarioJaExiste(usuario))
+                DomainEvent.Raise(new DomainNotification("RegistroExistente", "O E-mail já está registrado no sistema."));
+
             usuario.Registrar();
 
             if (Commit())

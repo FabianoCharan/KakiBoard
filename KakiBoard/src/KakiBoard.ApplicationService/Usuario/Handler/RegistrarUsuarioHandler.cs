@@ -1,4 +1,5 @@
 ﻿using KakiBoard.Domain.Usuario.Events.UserEvents;
+using KakiBoard.SharedKernel.Events;
 using KakiBoard.SharedKernel.Helpers.Contracts;
 using System.Collections.Generic;
 
@@ -11,7 +12,7 @@ namespace KakiBoard.ApplicationService.Usuario.Handler
         public void Handle(RegistrarUsuario args)
         {
             //disparar eventos aqui
-
+            
         }
 
         public bool HasNotifications()

@@ -37,11 +37,12 @@ namespace KakiBoard.Infrastructure.Repositories.Usuario
         public bool UsuarioJaExiste(Domain.Usuario.Models.Usuario usuario)
         {
             //UsuarioEspecificacao.EmailJaExiste(usuario.Email)
-
+            var projection = Builders<BsonDocument>.Projection.Exclude("_id");
             var build = Builders<BsonDocument>.Filter;
             var filter = build.Eq("email",usuario.Email).ToBsonDocument();// new BsonDocument();
 
             var result = _context.Usuarios.Find(UsuarioEspecificacao.EmailJaExiste(usuario.Email)).FirstOrDefaultAsync().Result;
+            //var result = _context.Usuarios.Find(UsuarioEspecificacao.EmailJaExiste(usuario.Email)).Project(projection).FirstOrDefaultAsync().Result;
             bool retorno = result != null;
             return retorno;
         }
