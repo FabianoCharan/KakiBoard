@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumeradores\Tarefa\Projeto.cs" />
+    <Compile Include="Enumeradores\Tarefa\StatusTarefa.cs" />
+    <Compile Include="Enumeradores\Tarefa\Tipo.cs" />
     <Compile Include="Events\Contracts\IDomainEvent.cs" />
     <Compile Include="Events\DomainEvent.cs" />
     <Compile Include="Events\DomainNotification.cs" />

@@ -40,8 +40,11 @@ namespace KakiBoard.Api.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public Task<HttpResponseMessage> Put(Domain.Usuario.Commands.RegistrarUsuarioCommand command)
         {
+            _service.Atualizar(command);
+
+            return CreateResponse(HttpStatusCode.OK, command);
         }
 
         // DELETE api/values/5

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tarefa\TarefaApplicationService.cs" />
     <Compile Include="Usuario\Handler\RegistrarUsuarioHandler.cs" />
     <Compile Include="Usuario\Services\UsuarioApplicationService.cs" />
   </ItemGroup>

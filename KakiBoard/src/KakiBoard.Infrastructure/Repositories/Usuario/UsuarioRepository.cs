@@ -18,16 +18,13 @@ namespace KakiBoard.Infrastructure.Repositories.Usuario
             _context = context;
         }
 
-        public void AtualizarUsuario(Domain.Usuario.Models.Usuario usuario)
+        public void AtualizarUsuario(Domain.Usuario.Models.Usuario usuario, string emailNovo)
         {
-            var objUsuario = _context.Usuarios
-                .Find(UsuarioEspecificacao.EmailJaExiste(usuario.Email))
-                .FirstOrDefaultAsync().Result;
+            var filter = Builders<Domain.Usuario.Models.Usuario>.Filter.Eq(u=> u.Email, usuario.Email);
 
-            //var filter = Builders<Domain.Usuario.Models.Usuario>.Filter.Eq(x=>x)
+            usuario.AtualizarEmail(emailNovo);
 
-            //if (usuario != null)
-               //var result = _context.Usuarios.ReplaceOneAsync((objUsuario);
+            var objUser = _context.Usuarios.ReplaceOne(filter, usuario);
         }
 
         public void Autenticar(Domain.Usuario.Models.Usuario usuario)
@@ -52,12 +49,12 @@ namespace KakiBoard.Infrastructure.Repositories.Usuario
             _context.Usuarios.InsertOne(usuario);
         }
 
-        public bool UsuarioJaExiste(Domain.Usuario.Models.Usuario usuario)
+        public bool UsuarioJaExiste(string email)
         {
             var projection = Builders<Domain.Usuario.Models.Usuario>.Projection.Exclude("_id");
 
             var result = _context.Usuarios
-                .Find(UsuarioEspecificacao.EmailJaExiste(usuario.Email))
+                .Find(UsuarioEspecificacao.EmailJaExiste(email))
                 .Project<Domain.Usuario.Models.Usuario>(projection)
                 .FirstOrDefaultAsync().Result;
 

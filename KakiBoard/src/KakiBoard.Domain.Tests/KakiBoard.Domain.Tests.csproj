@@ -59,6 +59,10 @@
       <Project>{7c64c24f-f8df-4039-9d86-f86f3e4a018e}</Project>
       <Name>KakiBoard.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KakiBoard.SharedKernel\KakiBoard.SharedKernel.csproj">
+      <Project>{975513a5-3b93-4432-8132-6991f18ea56e}</Project>
+      <Name>KakiBoard.SharedKernel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Choose>

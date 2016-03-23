@@ -9,7 +9,7 @@ namespace KakiBoard.Domain.Usuario.Repositories
         void Registrar(Models.Usuario usuario);
         void Autenticar(Models.Usuario usuario);
         List<Models.Usuario> ListarUsuarios();
-        bool UsuarioJaExiste(Models.Usuario usuario);
-        void AtualizarUsuario(Models.Usuario usuario);
+        bool UsuarioJaExiste(string email);
+        void AtualizarUsuario(Models.Usuario usuario, string emailNovo);
     }
 }

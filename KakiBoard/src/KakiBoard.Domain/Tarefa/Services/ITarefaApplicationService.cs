@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KakiBoard.Domain.Tarefa.Services
+﻿namespace KakiBoard.Domain.Tarefa.Services
 {
     public interface ITarefaApplicationService
     {
+        Models.Tarefa AdicionarTarefa(Commands.TarefaCommand command);
+        Models.Tarefa AtribuirTarefa(Commands.TarefaCommand command);
+        Models.Tarefa EntregarTarefa(Commands.TarefaCommand command);
     }
 }

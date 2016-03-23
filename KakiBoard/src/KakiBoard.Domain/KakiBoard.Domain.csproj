@@ -43,7 +43,9 @@
     <Compile Include="Tarefa\Models\Teste.cs" />
     <Compile Include="Tarefa\Models\Tipo.cs" />
     <Compile Include="Tarefa\Repositories\ITarefaRepository.cs" />
+    <Compile Include="Tarefa\Scope\TarefaEscopo.cs" />
     <Compile Include="Tarefa\Services\ITarefaApplicationService.cs" />
+    <Compile Include="Tarefa\Commands\TarefaCommand.cs" />
     <Compile Include="Usuario\Commands\RegistrarUsuarioCommand.cs" />
     <Compile Include="Usuario\Events\UserEvents\RegistrarUsuario.cs" />
     <Compile Include="Usuario\Handler\IRegistrarUsuarioHandler.cs" />

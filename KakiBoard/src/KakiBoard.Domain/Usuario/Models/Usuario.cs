@@ -28,6 +28,17 @@ namespace KakiBoard.Domain.Usuario.Models
                 return;
         }
 
+        public void Atualizar()
+        {
+            if (UsuarioEscopo.AtualizarUsuarioEscopoValido(this))
+                return;
+        }
+
+        public void AtualizarEmail(string emailNovo)
+        {
+            Email = emailNovo;
+        }
+
         public void Autenticar(string email, string senha)
         {
 

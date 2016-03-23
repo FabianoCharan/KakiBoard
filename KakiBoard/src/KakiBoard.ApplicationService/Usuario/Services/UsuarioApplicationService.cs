@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using KakiBoard.Domain.Usuario.Commands;
 using KakiBoard.Domain.Usuario.Events.UserEvents;
-using KakiBoard.Domain.Usuario.Models;
 using KakiBoard.Domain.Usuario.Repositories;
 using KakiBoard.Domain.Usuario.Services;
 using KakiBoard.SharedKernel.Events;
-using KakiBoard.SharedKernel.Helpers.Contracts;
 using KakiBoard.SharedKernel.Repositories;
 
 namespace KakiBoard.ApplicationService.Usuario.Services
@@ -20,16 +18,36 @@ namespace KakiBoard.ApplicationService.Usuario.Services
             _repository = repository;
         }
 
+        public Domain.Usuario.Models.Usuario Atualizar(RegistrarUsuarioCommand command)
+        {
+            var usuario = new Domain.Usuario.Models.Usuario(command.Nome, command.Email, command.Senha, command.Perfil);
+
+            if (_repository.UsuarioJaExiste(command.EmailNovo))
+                DomainEvent.Raise(new DomainNotification("RegistroExistente", "O E-mail já está registrado no sistema."));
+
+            usuario.Atualizar();
+
+            if(Commit())
+            {
+                _repository.AtualizarUsuario(usuario, command.EmailNovo);
+
+                //Raise Domain events here
+                return usuario;
+            }
+
+            return null;
+        }
+
         public List<Domain.Usuario.Models.Usuario> ListarTodosUsuarios()
         {
             return _repository.ListarUsuarios();
         }
 
-        public Domain.Usuario.Models.Usuario Registrar(Domain.Usuario.Commands.RegistrarUsuarioCommand command)
+        public Domain.Usuario.Models.Usuario Registrar(RegistrarUsuarioCommand command)
         {
             var usuario = new Domain.Usuario.Models.Usuario(command.Nome, command.Email, command.Senha, command.Perfil);
 
-            if (_repository.UsuarioJaExiste(usuario))
+            if (_repository.UsuarioJaExiste(usuario.Email))
                 DomainEvent.Raise(new DomainNotification("RegistroExistente", "O E-mail já está registrado no sistema."));
 
             usuario.Registrar();
