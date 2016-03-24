@@ -43,6 +43,15 @@ namespace KakiBoard.Api
             );
         }
 
-ç
+        public static void ConfigureDependencyInjection(HttpConfiguration config)
+        {
+            var container = new UnityContainer();
+            DependencyRegister.Register(container);
+
+            config.DependencyResolver = new UnityResolverHelper(container);
+            DomainEvent.Container = new DomainEventsContainer(config.DependencyResolver);
+
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
+        }
     }
 }
