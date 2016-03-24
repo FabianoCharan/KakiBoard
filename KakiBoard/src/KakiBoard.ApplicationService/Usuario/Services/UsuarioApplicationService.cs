@@ -29,7 +29,7 @@ namespace KakiBoard.ApplicationService.Usuario.Services
 
             if(Commit())
             {
-                _repository.AtualizarUsuario(usuario, command.EmailNovo);
+                _repository.Update(usuario);
 
                 //Raise Domain events here
                 return usuario;
@@ -40,7 +40,7 @@ namespace KakiBoard.ApplicationService.Usuario.Services
 
         public List<Domain.Usuario.Models.Usuario> ListarTodosUsuarios()
         {
-            return _repository.ListarUsuarios();
+            return _repository.Listar();
         }
 
         public Domain.Usuario.Models.Usuario Registrar(RegistrarUsuarioCommand command)
@@ -54,7 +54,7 @@ namespace KakiBoard.ApplicationService.Usuario.Services
 
             if (Commit())
             {
-                _repository.Registrar(usuario);
+                _repository.Add(usuario);
                 
                 //disparar Domain events aqui
                 DomainEvent.Raise(new RegistrarUsuario(usuario));

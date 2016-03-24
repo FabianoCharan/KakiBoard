@@ -1,25 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using KakiBoard.Domain.Tarefa.Scopes;
 
 namespace KakiBoard.Domain.Tarefa.Models
 {
     public class Teste
     {
-        public int Id { get; private set; }
-        public string Testador { get; private set; }
-        public string Perfil { get; private set; }
-        public bool Aprovado { get; private set; }
-        public DateTime? Data { get; private set; }
 
-        protected Teste() { }
-
-        public Teste(string testador, string perfil)
+        public Teste(string tester, string role)
         {
-            Testador = testador;
-            Perfil = perfil;
+            Id = Guid.NewGuid();
+            Tester = tester;
+            Role = role;
         }
+
+        public Guid Id { get; private set; }
+        public string Tester { get; private set; }
+        public string Role { get; private set; }
+        public bool Approved { get; private set; }
+        public DateTime? Date { get; private set; }
+
+        public void Registrar()
+        {
+            this.RegistrarTesteEscopoEstaValido();
+        }
+
     }
 }

@@ -1,34 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using KakiBoard.Domain.Tarefa.Models;
 using KakiBoard.Domain.Tarefa.Repositories;
 using KakiBoard.Infrastructure.Context;
-using MongoDB.Driver;
 using MongoDB.Bson;
 
 namespace KakiBoard.Infrastructure.Repositories.Tarefa
 {
     public class TarefaRepository : RepositoryBase<Domain.Tarefa.Models.Tarefa>, ITarefaRepository
     {
-        private readonly KakiBoardContext _context;
-
-        public TarefaRepository(KakiBoardContext context)
+        public TarefaRepository(KakiBoardContext context) : base(context)
         {
-            _context = context;
         }
 
-        public void AdicionarTarefa(Domain.Tarefa.Models.Tarefa tarefa)
+        public void Adicionar(Domain.Tarefa.Models.Tarefa tarefa)
         {
-            _context.Tarefas.InsertOne(tarefa);
+           Add(tarefa);
         }
 
-        public void AtualizarTarefa(Domain.Tarefa.Models.Tarefa tarefa)
+        public void Atualizar(Domain.Tarefa.Models.Tarefa tarefa)
         {
             throw new NotImplementedException();
         }
 
-        public List<Domain.Tarefa.Models.Tarefa> ListarTarefas()
+        public List<Domain.Tarefa.Models.Tarefa> Listar()
         {
-            return _context.Tarefas.Find(new BsonDocument()).ToList();
+            throw new NotImplementedException();
+
+            //return Find(new BsonDocument()).ToList();
         }
     }
 }

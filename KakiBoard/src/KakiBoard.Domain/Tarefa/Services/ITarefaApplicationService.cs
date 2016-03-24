@@ -2,8 +2,8 @@
 {
     public interface ITarefaApplicationService
     {
-        Models.Tarefa AdicionarTarefa(Commands.TarefaCommand command);
-        Models.Tarefa AtribuirTarefa(Commands.TarefaCommand command);
-        Models.Tarefa EntregarTarefa(Commands.TarefaCommand command);
+        Models.Tarefa Adicionar(Commands.TarefaCommand command);
+        Models.Tarefa Atribuir(Commands.TarefaCommand command);
+        Models.Tarefa Entregar(Commands.TarefaCommand command);
     }
 }

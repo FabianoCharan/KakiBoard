@@ -1,15 +1,12 @@
-﻿using KakiBoard.SharedKernel.Repositories;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using KakiBoard.SharedKernel.Repositories;
 
 namespace KakiBoard.Domain.Usuario.Repositories
 {
     public interface IUsuarioRepository : IRepositoryBase<Models.Usuario>
     {
-        void Registrar(Models.Usuario usuario);
         void Autenticar(Models.Usuario usuario);
-        List<Models.Usuario> ListarUsuarios();
+        List<Models.Usuario> Listar();
         bool UsuarioJaExiste(string email);
-        void AtualizarUsuario(Models.Usuario usuario, string emailNovo);
     }
 }

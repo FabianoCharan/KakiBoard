@@ -1,6 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using KakiBoard.SharedKernel.Enumeradores;
-using KakiBoard.Domain.Tarefa.Scope;
+using KakiBoard.Domain.Tarefa.Scopes;
 
 namespace KakiBoard.Domain.Tests.Tarefa
 {
@@ -12,10 +13,10 @@ namespace KakiBoard.Domain.Tests.Tarefa
         public void DeveLancarNovaTarefa()
         {
             var tarefa = new Domain.Tarefa.Models.Tarefa(
-                "Titulo tarefa", 
-                TipoTarefa.Desenvolvimento.ToString(), 
-                Projeto.BNEVip.ToString(), 
-                "Charan", 
+                "Titulo tarefa",
+                TipoTarefa.Desenvolvimento.ToString(),
+                Projeto.BNEVip.ToString(),
+                "Charan",
                 StatusTarefa.ToDo.ToString());
 
             Assert.AreEqual(true, tarefa.AdicionarTarefaEscopoValido());
@@ -34,5 +35,21 @@ namespace KakiBoard.Domain.Tests.Tarefa
 
             Assert.AreEqual(true, tarefa.AdicionarTarefaEscopoValido());
         }
+
+        [TestMethod]
+        [TestCategory("Tarefa")]
+        public void DeveLancarNovaTarefaComTags()
+        {
+            var tarefa = new Domain.Tarefa.Models.Tarefa(
+                "Titulo tarefa",
+                TipoTarefa.Desenvolvimento.ToString(),
+                Projeto.BNEVip.ToString(),
+                "Charan",
+                StatusTarefa.ToDo.ToString(),
+                new List<string> { "minhatag" });
+
+            Assert.AreEqual(true, tarefa.AdicionarTarefaEscopoValido());
+        }
+
     }
 }

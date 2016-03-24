@@ -1,5 +1,4 @@
-﻿using KakiBoard.Domain.Tarefa.Models;
-using KakiBoard.Domain.Usuario.Models;
+﻿using System.Collections.ObjectModel;
 using MongoDB.Driver;
 using System.Configuration;
 
@@ -9,8 +8,6 @@ namespace KakiBoard.Infrastructure.Context
     {
         public const string CONNECTION_STRING_NAME = "KakiBoardConnnection";
         public const string DATABASE_NAME = "kakiboard";
-        public const string TAREFAS_COLLECTION_NAME = "tarefas";
-        public const string USUARIOS_COLLECTION_NAME = "usuarios";
 
         private static readonly IMongoClient _client;
         private static readonly IMongoDatabase _database;
@@ -31,15 +28,18 @@ namespace KakiBoard.Infrastructure.Context
         {
             get { return _database; }
         }
+       
+        //public IMongoCollection<Usuario> Usuarios { get; set; }
+        //public IMongoCollection<Tarefa> Tarefas { get; set; }
+        //public IMongoCollection<Tipo> Tipos { get; set; }
+        //public IMongoCollection<Projeto> Projetos { get; set; }
+        //public IMongoCollection<Status> Status { get; set; }
 
-        public IMongoCollection<Usuario> Usuarios
-        {
-            get { return _database.GetCollection<Usuario>(USUARIOS_COLLECTION_NAME); }
-        }
+        //public MongoCollection<Usuario> Usuarios { get; set; }
+        //public MongoCollection<Tarefa> Tarefas { get; set; }
+        //public MongoCollection<Tipo> Tipos { get; set; }
+        //public MongoCollection<Projeto> Projetos { get; set; }
+        //public MongoCollection<Status> Status { get; set; }
 
-        public IMongoCollection<Tarefa> Tarefas
-        {
-            get { return _database.GetCollection<Tarefa>(TAREFAS_COLLECTION_NAME); }
-        }
     }
 }

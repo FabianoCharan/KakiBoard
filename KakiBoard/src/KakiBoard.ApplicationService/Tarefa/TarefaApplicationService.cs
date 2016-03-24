@@ -16,7 +16,7 @@ namespace KakiBoard.ApplicationService.Tarefa
             _repository = repository;
         }
 
-        public Domain.Tarefa.Models.Tarefa AdicionarTarefa(TarefaCommand command)
+        public Domain.Tarefa.Models.Tarefa Adicionar(TarefaCommand command)
         {
             var tarefa = new Domain.Tarefa.Models.Tarefa(command.Titulo, command.Tipo, command.Projeto, command.QuemCadastrou, command.Status);
 
@@ -32,12 +32,12 @@ namespace KakiBoard.ApplicationService.Tarefa
             return null;
         }
 
-        public Domain.Tarefa.Models.Tarefa AtribuirTarefa(TarefaCommand command)
+        public Domain.Tarefa.Models.Tarefa Atribuir(TarefaCommand command)
         {
             throw new NotImplementedException();
         }
 
-        public Domain.Tarefa.Models.Tarefa EntregarTarefa(TarefaCommand command)
+        public Domain.Tarefa.Models.Tarefa Entregar(TarefaCommand command)
         {
             throw new NotImplementedException();
         }

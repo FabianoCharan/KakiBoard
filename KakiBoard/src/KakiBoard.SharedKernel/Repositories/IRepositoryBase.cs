@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace KakiBoard.SharedKernel.Repositories
 {
-    public interface IRepositoryBase<T> : IDisposable where T : class
+    public interface IRepositoryBase<TEntity> : IDisposable where TEntity : class
     {
-        void Create(T entity);
-        IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
-        void Update(T entity);
-        void Delete(T entity);
+        void Add(TEntity entity);
+        void Update(TEntity entity);
+        void Delete(TEntity entity);
     }
 }

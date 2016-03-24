@@ -1,12 +1,11 @@
-﻿using KakiBoard.SharedKernel.Repositories;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using KakiBoard.SharedKernel.Repositories;
 
 namespace KakiBoard.Domain.Tarefa.Repositories
 {
     public interface ITarefaRepository : IRepositoryBase<Models.Tarefa>
     {
-        void AdicionarTarefa(Models.Tarefa tarefa);
-        void AtualizarTarefa(Models.Tarefa tarefa);
-        List<Models.Tarefa> ListarTarefas();
+        void Atualizar(Models.Tarefa tarefa);
+        List<Models.Tarefa> Listar();
     }
 }

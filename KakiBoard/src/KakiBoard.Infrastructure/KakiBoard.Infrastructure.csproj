@@ -56,7 +56,10 @@
     <Compile Include="Context\KakiBoardContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\Tarefa\ProjetoRepository.cs" />
+    <Compile Include="Repositories\Tarefa\StatusRepository.cs" />
     <Compile Include="Repositories\Tarefa\TarefaRepository.cs" />
+    <Compile Include="Repositories\Tarefa\TipoRepository.cs" />
     <Compile Include="Repositories\Usuario\UsuarioRepository.cs" />
     <Compile Include="Transaction\UnitOfWork.cs" />
   </ItemGroup>

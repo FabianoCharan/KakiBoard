@@ -1,13 +1,30 @@
-﻿using KakiBoard.Domain.Tarefa.Scope;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using KakiBoard.Domain.Tarefa.Scopes;
+using KakiBoard.SharedKernel.Enumeradores;
 
 namespace KakiBoard.Domain.Tarefa.Models
 {
     public class Tarefa
     {
-        protected Tarefa() { }
 
+        public Tarefa(string titulo, string tipo, string projeto, string quemCadastrou, string status)
+        {
+            Id = Guid.NewGuid();
+            Titulo = titulo;
+            Tipo = tipo;
+            Projeto = projeto;
+            QuemCadastrou = quemCadastrou;
+            DataCadastro = DateTime.Now;
+            Status = status;
+        }
+
+        public Tarefa(string titulo, string tipo, string projeto, string quemCadastrou, string status, IList<string> tags) : this(titulo, tipo, projeto, quemCadastrou, status)
+        {
+            Tags = tags;
+        }
+
+        public Guid Id { get; private set; }
         public string Titulo { get; private set; }
         public string Descricao { get; private set; }
         public string Tipo { get; private set; }
@@ -26,35 +43,23 @@ namespace KakiBoard.Domain.Tarefa.Models
         public IList<Interacao> Interacoes { get; private set; }
         public IList<Teste> Testes { get; private set; }
 
-        public Tarefa(string titulo, string tipo, string projeto, string quemCadastrou,string status)
-        {
-            Titulo = titulo;
-            Tipo = tipo;
-            Projeto = projeto;
-            QuemCadastrou = quemCadastrou;
-            DataCadastro = DateTime.Now;
-            Status = status;
-        }
-
         public void AdicionarTarefa()
         {
-            if (TarefaEscopo.AdicionarTarefaEscopoValido(this))
-                return;
+            this.AdicionarTarefaEscopoValido();
         }
 
         public void AtribuirTarefa()
         {
-            if (TarefaEscopo.AtribuirTarefaEscopoValido(this))
-                return;
+            this.AtribuirTarefaEscopoValido();
         }
 
         public void EntregarTarefa()
         {
-            this.DataEntrega = DateTime.Now;
-            this.Status = SharedKernel.Enumeradores.StatusTarefa.Done.ToString();
+            DataEntrega = DateTime.Now;
+            Status = StatusTarefa.Done.ToString();
 
-            if (TarefaEscopo.EntregarTarefaEscopoValido(this))
-                return;
+            this.EntregarTarefaEscopoValido();
         }
+
     }
 }

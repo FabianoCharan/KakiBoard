@@ -181,6 +181,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjetoController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
+    <Compile Include="Controllers\TipoController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Helpers\DomainEventsContainer.cs" />
     <Compile Include="Helpers\UnityResolverHelper.cs" />
