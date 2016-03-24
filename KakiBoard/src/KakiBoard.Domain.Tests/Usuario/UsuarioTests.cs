@@ -75,6 +75,7 @@ namespace KakiBoard.Domain.Tests.Usuario
             var query = UsuarioEspecificacao.EmailJaExiste("usuario@usuario.com.br");
             var count = _usuarios.Where(query).Count();
 
+
             Assert.AreEqual(count, 1);
         }
 
